@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### Boston House Pricing Prediction
 
 ### Software And Tools Requirements
@@ -12,3 +13,6 @@ Create a new environment
 ```
 conda create -p venv python==3.7 -y
 ```
+=======
+# End_to_End_ML_Project_1B
+>>>>>>> 1f454d3d801c6c7a7fb54fe348581f05a615d29a
