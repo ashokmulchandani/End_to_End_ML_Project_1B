@@ -19,11 +19,19 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Lint code
-        run: echo "Linting repository"
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.7'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Run unit tests
-        run: echo "Running unit tests"
+        run: |
+          python -m pytest test_app.py -v
 
   build-and-push-ecr-image:
     name: Continuous Delivery
