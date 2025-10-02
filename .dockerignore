@@ -1,0 +1,7 @@
+ML-env/
+venv/
+__pycache__/
+*.pyc
+.git/
+.gitignore
+README.md
