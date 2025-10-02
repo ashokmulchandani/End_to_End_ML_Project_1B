@@ -62,7 +62,7 @@ jobs:
           
   Continuous-Deployment:
     needs: build-and-push-ecr-image
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -83,9 +83,9 @@ jobs:
         run: |
          docker pull ${{ steps.login-ecr.outputs.registry }}/studentperformance:latest
          
-      # - name: Stop and remove  container if running
-      #   run: |
-      #    docker ps -q --filter "name=mltest" | grep -q . && docker stop mltest && docker rm -fv mltest
+      - name: Stop and remove container if running
+        run: |
+         docker ps -q --filter "name=mltest" | grep -q . && docker stop mltest && docker rm -fv mltest || true
        
       - name: Run Docker Image to serve users
         run: |
